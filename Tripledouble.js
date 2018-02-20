@@ -1,34 +1,33 @@
-
 function tripledouble(num1, num2) {
+/*tests num1 to see if there are triples...if not, return 0 */
 if ((/^\d*(\d)\1{2}\d*$/g).test(num1) === false) {
 return 0;
 } else {
+/* check for sets of triples, take the sets, turn to strings
 const numSplit = num1.toString().match(/(\d)\1{2}/g).toString();
 const numTrim = numSplit.replace(/[, ]+/g, " ").trim();
-alert(numTrim);
-if (numTrim.length >1 ) {
-var index = numTrim.indexOf(" ");  // Gets the first index where a space occours
-var id = numTrim.substr(index);
-var text = numTrim.substr(index + 1);
-var numTrim1 = id.charAt(0);
-var numTrim2 = text.charAt(0);
+if there are triples, is there more than one set?
+const index = numTrim.indexOf(" ");
+const id = numTrim.substr(0, index);
+const text = numTrim.substr(index + 1);
+const numTrim1 = id.charAt(0);
+const numTrim2 = text.charAt(0);
 const numVar = new RegExp('(' + numTrim1 + '|' + numTrim2 + '){1}', 'g');
-alert(numVar);
-} else {
-if (numTrim.length === 1) {
-const numVar2 = new RegExp('(' + numTrim + '){1}', 'g');
-var num2Str = num2.toString();
-const num3Split = numVar2.test(num2Str);
+const num2Str = num2.toString();
 const num2Split = numVar.test(num2Str);
-if (num2Split === true | num3Split === true) {
-return 1;
-} else {
-return 0;
+const numVar2 = new RegExp('(' + numTrim + '){1}', 'g');
+const num3Split = numVar2.test(num2Str);
+if (numTrim.length > 3 && num2Split === true) {
+alert(1);
+} else
+if (numTrim.length === 3 && num3Split === true) { */
+alert(1);
+/*  else {
+alert(0);
+}
+} */
 }
 }
-}
-}
-}
-var num1 = 12222345;
-var num2 = 12345;
+var num1 = 451999277;
+var num2 = 41177722899;
 alert(tripledouble(num1, num2));
