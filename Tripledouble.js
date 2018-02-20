@@ -1,45 +1,34 @@
-/* function tripledouble(num1, num2) {  */
-var num1 = 1222345;
-/* var num2 = 12345;  */
-/* if ( */
-var re = new RegExp('^\d*(\d)\1{2}\d*$', 'g');
-numSplit = num1.test(re);
-alert(numSplit);
-/* === false) {
-alert(0);
-} */ /* else {
-const numSplit = num1.toString().match(/^\d*(\d)\1{2}\d*$/g).toString();
-alert(typeof numSplit);
-} */
-/* if (numSplit !== null) {
-alert(numSplit);
 
-} */
-/*
+function tripledouble(num1, num2) {
+if ((/^\d*(\d)\1{2}\d*$/g).test(num1) === false) {
+return 0;
+} else {
+const numSplit = num1.toString().match(/(\d)\1{2}/g).toString();
 const numTrim = numSplit.replace(/[, ]+/g, " ").trim();
 alert(numTrim);
+if (numTrim.length >1 ) {
 var index = numTrim.indexOf(" ");  // Gets the first index where a space occours
-var id = numTrim.substr(0, index);
-alert(id.charAt(0));// Gets the first part
+var id = numTrim.substr(index);
 var text = numTrim.substr(index + 1);
-alert(text.charAt(0));
-alert(id);
-alert(text);
 var numTrim1 = id.charAt(0);
-alert(numTrim1);
 var numTrim2 = text.charAt(0);
 const numVar = new RegExp('(' + numTrim1 + '|' + numTrim2 + '){1}', 'g');
 alert(numVar);
+} else {
+if (numTrim.length === 1) {
+const numVar2 = new RegExp('(' + numTrim + '){1}', 'g');
 var num2Str = num2.toString();
+const num3Split = numVar2.test(num2Str);
 const num2Split = numVar.test(num2Str);
-if (num2Split === true) {
+if (num2Split === true | num3Split === true) {
 return 1;
 } else {
 return 0;
 }
-
 }
-*/
-/* var num1 = 12345;
+}
+}
+}
+var num1 = 12222345;
 var num2 = 12345;
-alert(tripledouble(num1, num2));  */
+alert(tripledouble(num1, num2));
